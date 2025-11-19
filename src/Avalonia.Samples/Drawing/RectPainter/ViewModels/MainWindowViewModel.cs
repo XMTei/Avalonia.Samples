@@ -30,7 +30,18 @@ namespace RectPainter.ViewModels
             }
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        /// <remarks>This event is typically raised by the <see cref="INotifyPropertyChanged"/> interface 
+        /// implementation to notify subscribers that a property value has been updated.  Use this event to monitor
+        /// changes to properties in the implementing class.</remarks>
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>
+        /// a wrapper to raise the PropertyChanged event
+        /// </summary>
+        /// <param name="name"></param>
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
