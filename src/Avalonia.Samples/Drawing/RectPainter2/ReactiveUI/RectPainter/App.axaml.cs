@@ -21,6 +21,9 @@ public partial class App : Application
             desktop.MainWindow = new MainWindow
             {
                 DataContext = new MainViewModel()
+                {
+                    Vm = new PaintControlViewModel()
+                }
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
@@ -28,6 +31,9 @@ public partial class App : Application
             singleViewPlatform.MainView = new MainView
             {
                 DataContext = new MainViewModel()
+                {
+                    Vm = new PaintControlViewModel()
+                }
             };
         }
 
