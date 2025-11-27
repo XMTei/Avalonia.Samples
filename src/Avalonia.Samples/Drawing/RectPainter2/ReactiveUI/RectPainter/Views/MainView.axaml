@@ -3,14 +3,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:RectPainter.ViewModels"
+             xmlns:controls="using:RectPainter.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RectPainter.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
+    <Design.DataContext>
+        <vm:MainViewModel/>
+    </Design.DataContext>
+		
+    <Grid RowDefinitions="auto, *, auto">
+        <TextBlock Grid.Row="0" Text="Use mouse with Shift/Alt/Ctrl key modifiers pressed."/>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <controls:PaintControl DataContext="{Binding Vm}" />
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Width="50" Text="Cursor:"/>
+            <TextBlock Width="120" Text="{Binding MousePosition}"/>
+            <TextBlock Width="70" Text="Rectangle:"/>
+            <TextBlock Width="100" Text="{Binding Rect}"/>
+        </StackPanel>
+    </Grid>
 </UserControl>
