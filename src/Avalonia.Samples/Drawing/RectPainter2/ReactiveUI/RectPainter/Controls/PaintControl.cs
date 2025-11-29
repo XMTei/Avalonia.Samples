@@ -22,6 +22,7 @@ namespace RectPainter.Controls
             PointerReleased += PaintControl_PointerReleased;
             PointerCaptureLost += PaintControl_PointerCaptureLost;
             SizeChanged += PaintControl_SizeChanged;
+            
 
             KeyDownEvent.AddClassHandler<TopLevel>(PaintControl_KeyDown, handledEventsToo: true);
             KeyUpEvent.AddClassHandler<TopLevel>(PaintControl_KeyUp, handledEventsToo: true);
